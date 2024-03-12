@@ -21,6 +21,8 @@ export default function PopularMovies() {
     useEffect(() => {
         getPopularMovies()
     }, [])
+
+    console.log(popularMovieList)
         // const [movies, setMovies] = useState([]);
 
         // useEffect(() => {
@@ -45,13 +47,33 @@ export default function PopularMovies() {
         // }, [])
 
 
-
     return(
         <>
         <Header/>
-            <div>
-            <p>Popular movies goes here</p>
+        <div>
+            <p >Popular Movies</p>
         </div>
+        
+
+        <div>
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-x-8 gap-y-4 p-10 bg-slate-900">
+            {popularMovieList.map((movie) =>(
+            <div className="bg-slate-300 border-2 border-amber-300">
+                <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt=""/>
+                <h1 className="text-orange-500">{movie.title}</h1>
+                <h3>{movie.popularity}</h3>
+                <h3>{movie.release_date}</h3>
+
+            </div>
+            
+
+            ))}
+        </div>
+
+
+
+        </div>
+        
 
         {/* <div>
             <ul>
