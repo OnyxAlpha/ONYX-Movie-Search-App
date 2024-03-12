@@ -1,5 +1,7 @@
 import { useEffect } from "react";
 import "./index.css";
+import Header from "../../components/header/header.jsx";
+import Footer from "../../components/footer/footer.jsx";
 
 export default function MovieDetails() {
     const url = 'https://api.themoviedb.org/3/person/popular';
@@ -23,8 +25,10 @@ export default function MovieDetails() {
 
     
     return(
-        <div>
+        <>
+        <Header/>
             <p>Movie details goes here</p>
-        </div>
+        <Footer/>
+        </>
     )
 }
