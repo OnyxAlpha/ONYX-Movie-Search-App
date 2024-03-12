@@ -23,7 +23,7 @@ export default function TrendingH() {
     
     
     return(
-        <div className="imageCards">
+        <div className="grid grid-cols-5 grid-rows-1 gap-3">
                   {moviesData.slice(10,15).map((movie) => {
                     return (
                       <div>

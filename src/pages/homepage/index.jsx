@@ -1,4 +1,5 @@
 import PopularH from "../../components/popularHomepage";
+import TrailerH from "../../components/trailersHomepage";
 import TrendingH from "../../components/trendingHomepage";
 
 
@@ -33,6 +34,10 @@ export default function Homepage() {
           <div>
             <h3>Popular</h3>
             <PopularH/>
+          </div>
+          <div>
+            <h3>Trailers</h3>
+            <TrailerH/>
           </div>
 
        </section> 
