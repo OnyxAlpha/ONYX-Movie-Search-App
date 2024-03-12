@@ -28,23 +28,10 @@ export default function MovieDetails() {
     },[])
 
     
-    return(
-       <>
-           <div className="container_grid">
-
-         {movies.map((item)=>{
-            return (
-             <div className="image_container">
-            <img style={{width: '80px', height: '100px'}} src={`https://image.tmdb.org/t/p/w500${item.profile_path}`} alt="" />
-            <div>
-                <p>{item.name}</p>
-            </div>
+    return(  
+        <div>
+            <p class="text-3xl font-bold underline">Movie details goes here</p>
         </div>
-            )
 
-        })}
-           </div>
-        
-       </>
     )
 }
