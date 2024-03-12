@@ -24,7 +24,7 @@ export default function MovieDetails() {
     
     return(
         <div>
-            <p>Movie details goes here</p>
+            <p class="text-3xl font-bold underline">Movie details goes here</p>
         </div>
     )
 }
