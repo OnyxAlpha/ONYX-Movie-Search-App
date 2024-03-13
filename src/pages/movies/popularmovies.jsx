@@ -3,10 +3,30 @@ import React  from "react";
 import Header from "../../components/header/header.jsx";
 import Footer from "../../components/footer/footer.jsx";
 
-
+const imageUrls = [
+    "/gJL5kp5FMopB2sN4WZYnNT5uO0u.jpg",
+    "/xvk5AhfhgQcTuaCQyq3XqAnhEma.jpg",
+    "/mDeUmPe4MF35WWlAqj4QFX5UauJ.jpg",
+  ];
 
 
 export default function PopularMovies() {
+
+    const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+          setCurrentImageIndex((prevIndex) =>
+            prevIndex === imageUrls.length - 1 ? 0 : prevIndex + 1
+          );
+        }, 4000);
+    
+        return () => clearInterval(interval);
+      }, []);
+
+
+
+
 
     const [popularMovieList, setpopularMovieList] = useState([])
 
@@ -16,7 +36,6 @@ export default function PopularMovies() {
         .then(json => setpopularMovieList(json.results))
     }
 
-
     useEffect(() => {
         getPopularMovies()
     }, [])
@@ -25,11 +44,17 @@ export default function PopularMovies() {
 
 
     return(
-        <>
+        <React.Fragment>
         <Header/>
-        <div>
-            <p className="text-center text-3xl font-bold bg-neutral-200 my-10">Popular Movies</p>
+        <div className="bg-red-200 pt-10px">
+        <div
+          className="absolute inset-0 bg-center z-0 h-3/4"
+          style={{ backgroundImage: `url("https://image.tmdb.org/t/p/w500/${imageUrls[currentImageIndex]}")` }}
+        ></div>
+        <div className="relative z-10 text-black flex flex-col items-center justify-center h-screen">
+          <h1 className="text-3xl font-bold mb-4">Welcome to Popular Movies</h1>
         </div>
+      </div>
         
 
         <div>
@@ -55,7 +80,6 @@ export default function PopularMovies() {
         </div>
 
         <Footer/>
-        </>
-        
+        </React.Fragment>    
     )
-}
+};
