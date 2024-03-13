@@ -27,16 +27,18 @@ export default function PopularTVShows() {
   return (
     <>
       <Header />
-      <div class="grid grid-cols-1 hover:grid-cols-6">
+      <h1 class="flex justify-center pt-10 pb-10 font-bold text-3xl">Popular Shows</h1>
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-x-10 gap-y-10 p-10">
         {popularShows.map(show => (
-          <div key={show.id}>
-            <img class="w-16 md:w-32 lg:w-48"src={`${baseImageUrl}${show.poster_path}`} alt='' />
-            <h2>{show.name}</h2>
+          <div className='bg-slate-300 border-2 border-amber-300 transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-90 hover: duration-300  pb-5' key={show.id}>
+            <img src={`${baseImageUrl}${show.poster_path}`} alt='' />
+            <h1 className='text-black-500 flex justify-center pt-5 font-bold text-xl'>{show.name}</h1>
             <h3>{show.release_date}</h3>
           </div>
         ))}
-      </div>
-      <p>Popular Shows</p>
+      </div>  
+      <br/>
+      <br/>
       <Footer />
     </>
   );
