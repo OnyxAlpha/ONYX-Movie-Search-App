@@ -4,6 +4,7 @@ import Header from "../../components/header/header.jsx";
 import Footer from "../../components/footer/footer.jsx";
 
 
+
 // const apiUrl = new URL ("https://api.themoviedb.org/3/movie/popular")
 
 export default function PopularMovies() {
