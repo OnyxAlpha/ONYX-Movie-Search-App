@@ -3,8 +3,8 @@ import React from "react";
 import "./App.css";
 import Homepage from "./pages/homepage/index";
 import MovieDetails from "./pages/moviedetails";
-import MovieList from "./pages/movielist";
-import PopularMovies from "./pages/popularmovies";
+import MovieList from "./pages/movies/allmovies";
+import PopularMovies from "./pages/movies/popularmovies";
 import SearchResults from "./pages/searchresults";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
