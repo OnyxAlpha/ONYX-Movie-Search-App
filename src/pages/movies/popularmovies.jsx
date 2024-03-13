@@ -46,28 +46,33 @@ export default function PopularMovies() {
     return(
         <React.Fragment>
         <Header/>
-        <div className="bg-red-200 pt-10px">
+        <div className="">
         <div
-          className="absolute inset-0 bg-center z-0 h-3/4"
+          className="absolute inset-0 bg-cover bg-center z-0 h-3/4 mt-10"
           style={{ backgroundImage: `url("https://image.tmdb.org/t/p/w500/${imageUrls[currentImageIndex]}")` }}
         ></div>
-        <div className="relative z-10 text-black flex flex-col items-center justify-center h-screen">
-          <h1 className="text-3xl font-bold mb-4">Welcome to Popular Movies</h1>
+        <div className="relative z-10 text-white flex flex-col items-center justify-center h-screen">
+          <h1 className="text-xl md:text-3xl lg:text-5xl font-bold">Welcome to Popular Movies</h1>
         </div>
       </div>
         
 
         <div>
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-x-10 gap-y-20 p-10 bg-gradient-to-r from-blue-950 via-blue-900 to-blue-950 ... p-20">
+
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-x-6 gap-y-4 md:gap-y-20 bg-black px-10 py-20">
             {popularMovieList.map((movie) =>(
-            <div className="bg-white border-2 rounded-lg">
-                <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt="" className="w-full h-80 border-b-4 border-b-orange-600 rounded-t-lg "/>
+            <div className="flex md:block bg-white border-2 rounded-lg">
+              <div className="w-2/5 md:w-full">
+                <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt="" className="w-4/5 md:w-full h-36 md:h-80 border-b-4 border-b-orange-600 rounded-t-lg "/>
+              </div>
+              <div>
                 <h1 className="text-orange-500">{movie.title}</h1>
                 <h3>Release: {movie.release_date}</h3>
                 <div className="flex gap-10">
                     <p>Trailer</p>
                     <p>Detail</p>
                 </div>
+              </div>
 
             </div>
             
