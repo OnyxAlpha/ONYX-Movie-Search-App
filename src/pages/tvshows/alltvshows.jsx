@@ -4,14 +4,23 @@ import Footer from "../../components/footer/footer.jsx";
 import { Link } from "react-router-dom";
 
 export default function AllTVShows() {
-  const url = `https://api.themoviedb.org/3/tv/popular?language=en-US&page=2`;
+  const url2 = `https://api.themoviedb.org/3/tv/popular?language=en-US&page=2`;
+  const url1 = `https://api.themoviedb.org/3/tv/popular?language=en-US&page=1`;
+  const url3 = `https://api.themoviedb.org/3/tv/top_rated?language=en-US&page=3`;
 
   const [allShows, setAllShows] = useState([]);
 
+  /* these are just states to show the title category title */
+  const [popularTag, setPopularTag]=useState(false);
+  const [topRatedTag, setTopRatedTag]=useState(false);
+
+
+  /* please just replace your API authentication key name and everything should work fine*/
+
   async function fetchAllShows() {
-    const response = await fetch(url, {
+    const response = await fetch(url2, {
       headers: {
-        Authorization: `Bearer ${process.env.REACT_APP_MOVIE_API_KEY}`,
+        Authorization: `Bearer ${process.env.REACT_APP_API_AUTHKEY}`,
       },
     });
     const data = await response.json();
@@ -19,9 +28,45 @@ export default function AllTVShows() {
     setAllShows(data.results);
   }
 
+/* function for popular movies */
+  async function fetchPopularShows() {
+    const response = await fetch(url1, {
+      headers: {
+        Authorization: `Bearer ${process.env.REACT_APP_API_AUTHKEY}`,
+      },
+    });
+    const data = await response.json();
+    console.log();
+    setAllShows([]);
+    setAllShows(data.results);
+    setPopularTag(true);
+    setTopRatedTag(false);
+  }
+
+
+/* function for tp rated movies */
+  async function fetchTopRatedShows() {
+    const response = await fetch(url3, {
+      headers: {
+        Authorization: `Bearer ${process.env.REACT_APP_API_AUTHKEY}`,
+      },
+    });
+    const data = await response.json();
+    setAllShows([]);
+    setAllShows(data.results);
+    setPopularTag(false);
+    setTopRatedTag(true);
+  }
+
+
   useEffect(() => {
     fetchAllShows();
   }, []);
+
+
+  if(!allShows){
+    return (<div>Loading......</div>)
+  }
 
   const baseImageUrl = "https://image.tmdb.org/t/p/w500";
 
@@ -31,12 +76,18 @@ export default function AllTVShows() {
       <h1 class="flex justify-center pt-10 pb-10 font-bold text-3xl">
         TV Shows
       </h1>
-      <button>
-        <Link to="/populartvshows">Popular Shows</Link>
+      <button onClick={()=> fetchPopularShows()}>
+        <Link >Popular Shows</Link>
       </button>
-      <button >
-        <Link to="/topratedtvshows">Top Rated Shows</Link>
+      <button onClick={()=> fetchTopRatedShows()} >
+        <Link >Top Rated Shows</Link>
       </button>
+      {popularTag ? <h1 class="flex justify-center pt-3 pb-3 font-bold text-2xl">
+        Popular Movies
+      </h1>: !allShows}
+      {topRatedTag? <h1 class="flex justify-center pt-3 pb-3 font-bold text-2xl">
+        Top Rated Movies
+      </h1>: !allShows }
       <div class="grid grid-cols-6 md:grid-cols-4 gap-x-10 gap-y-10 p-10">
         {allShows.map((show) => (
           <div
