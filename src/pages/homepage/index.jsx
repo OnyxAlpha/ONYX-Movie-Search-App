@@ -12,7 +12,7 @@ export default function Homepage() {
     return (
       <>
        <section >
-          <div className="heroS">
+          <div className="block max-w-sm rounded-lg bg-white bg-cover p-6 shadow-lg dark:bg-neutral-700" >
             <h2>Welcome!</h2>
             <p>Explore latest movies and millions of different genre of movies</p>
 
@@ -22,7 +22,7 @@ export default function Homepage() {
 
             <button>Search</button> 
           </div>
-          <div className="second">
+          <div className="bg-black">
           <h1>OSCARS</h1>
             <button>View the winners</button>
           </div>

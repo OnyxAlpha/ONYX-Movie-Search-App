@@ -23,11 +23,11 @@ export default function TrendingH() {
     
     
     return(
-        <div className="grid grid-cols-5 grid-rows-1 gap-3">
+        <div  class="grid grid-cols-4 gap-4">
                   {moviesData.slice(10,15).map((movie) => {
                     return (
-                      <div>
-                        <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt=""/>
+                      <div> 
+                        <img  src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt=""      />
                         <br />
                         <p>{movie.title}</p>
                       </div>
