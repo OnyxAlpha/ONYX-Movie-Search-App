@@ -5,7 +5,6 @@ import Footer from "../../components/footer/footer.jsx";
 
 import "./index.css";
 
-// const apiUrl = new URL ("https://api.themoviedb.org/3/movie/popular")
 
 export default function PopularMovies() {
 
@@ -23,46 +22,27 @@ export default function PopularMovies() {
     }, [])
 
     console.log(popularMovieList)
-        // const [movies, setMovies] = useState([]);
-
-        // useEffect(() => {
-        //     const fetchmovies = async () => {
-        //         try {
-        //             // apiUrl.searchParams.append('api_key', process.env.REACT_APP_AUTHORIZATION_KEY)
-        //             const response = await fetch(apiUrl, {
-        //                 headers: {
-        //                     'Authorization': `Bearer ${process.env.REACT_APP_AUTHORIZATION_KEY}`
-        //                 }
-        //             });
-        //             if (!response.ok) {
-        //                 throw new Error("Check your internet connectivity");
-        //             }
-        //             const data = await response.json();
-        //             setMovies(data.results);
-        //         }   catch (error) {
-        //             console.error('Error fetching data', error);
-        //         }
-        //     };
-        //     fetchmovies();
-        // }, [])
 
 
     return(
         <>
         <Header/>
         <div>
-            <p >Popular Movies</p>
+            <p className="text-center text-3xl font-bold bg-neutral-200 my-10">Popular Movies</p>
         </div>
         
 
         <div>
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-x-8 gap-y-4 p-10 bg-slate-900">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-x-10 gap-y-20 p-10 bg-gradient-to-r from-blue-950 via-blue-900 to-blue-950 ... p-20">
             {popularMovieList.map((movie) =>(
-            <div className="bg-slate-300 border-2 border-amber-300">
-                <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt=""/>
+            <div className="bg-white border-2 rounded-lg">
+                <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt="" className="w-64 h-80 border-b-4 border-b-orange-600 rounded-t-lg "/>
                 <h1 className="text-orange-500">{movie.title}</h1>
-                <h3>{movie.popularity}</h3>
-                <h3>{movie.release_date}</h3>
+                <h3>Release: {movie.release_date}</h3>
+                <div className="flex gap-10">
+                    <p>Trailer</p>
+                    <p>Detail</p>
+                </div>
 
             </div>
             
@@ -73,15 +53,6 @@ export default function PopularMovies() {
 
 
         </div>
-        
-
-        {/* <div>
-            <ul>
-              {movies.map(movie => (
-                <li key={movie.id}>{movie.title}</li>
-              ))}
-            </ul>
-        </div> */}
 
         <Footer/>
         </>
