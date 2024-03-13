@@ -1,11 +1,11 @@
 import Header from "../../components/header/header.jsx";
 import Footer from "../../components/footer/footer.jsx";
 
-export default function AllMovies() {
+export default function AllTvShows() {
     return (
         <>
         <Header/>
-        <p>All movies go here</p>
+        <p>All tv shows go here</p>
         <Footer/>
         </>
     )
