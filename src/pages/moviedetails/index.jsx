@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-import "./index.css";
 
 export default function MovieDetails() {
     const url = 'https://api.themoviedb.org/3/person/popular';
