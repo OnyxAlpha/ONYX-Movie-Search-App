@@ -5,6 +5,7 @@ export default function TrailerH() {
     const [videoData, setVideoData] = useState([]);
     const [setKeys, getKeys] = useState([]);
     
+    
     const getAllMovies = () =>{
       
     const url = new URL('https://api.themoviedb.org/3/trending/movie/day?language=en-US');
@@ -17,24 +18,16 @@ export default function TrailerH() {
       .then(res => res.json())
       .then(movieList => setmoviesData(movieList.results))
       .catch(err => console.error('error:' + err));
-
-      
-        
-       
     }
     
   
     
     // console.log({moviesData})
    
-    // moviesData.map((item) =>{
-    //   getKeys(getVideos(item.id))
-    // })
+ 
+
     const getVideos = (id) =>{
-      
-      const url = new URL(`https://api.themoviedb.org/3/movie/${792307}/videos?language=en-US`);
-      
-      
+      const url = new URL(`https://api.themoviedb.org/3/movie/${id}/videos?language=en-US`);
       fetch(url,{
         headers: {
         'Authorization': `Bearer ${process.env.REACT_APP_API_token}`
@@ -50,10 +43,13 @@ export default function TrailerH() {
 
       useEffect(() =>{
         getAllMovies();
-        getVideos();
+        // getVideos();
       },[])
+      console.log({moviesData});  
 
-      
+      moviesData.map((item) =>{
+        getVideos(item.id)
+      })
 
     
       if(!moviesData){

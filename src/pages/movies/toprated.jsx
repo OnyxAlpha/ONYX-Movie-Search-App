@@ -1,11 +1,11 @@
 import Header from "../../components/header/header.jsx";
 import Footer from "../../components/footer/footer.jsx";
 
-export default function SearchResults() {
-    return(
+export default function TopRatedMovies() {
+    return (
         <>
         <Header/>
-            <p>Search results goes here</p>
+        <p>Top rated movies go here</p>
         <Footer/>
         </>
     )
