@@ -36,7 +36,7 @@ export default function PopularMovies() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-x-10 gap-y-20 p-10 bg-gradient-to-r from-blue-950 via-blue-900 to-blue-950 ... p-20">
             {popularMovieList.map((movie) =>(
             <div className="bg-white border-2 rounded-lg">
-                <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt="" className="w-64 h-80 border-b-4 border-b-orange-600 rounded-t-lg "/>
+                <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt="" className="w-full h-80 border-b-4 border-b-orange-600 rounded-t-lg "/>
                 <h1 className="text-orange-500">{movie.title}</h1>
                 <h3>Release: {movie.release_date}</h3>
                 <div className="flex gap-10">
