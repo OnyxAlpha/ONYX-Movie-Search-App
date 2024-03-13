@@ -1,12 +1,11 @@
-import "./index.css";
 import Header from "../../components/header/header.jsx";
 import Footer from "../../components/footer/footer.jsx";
 
-export default function MovieList () {
+export default function AllMovies() {
     return (
         <>
         <Header/>
-        <p>Movie list goes here</p>
+        <p>All movies go here</p>
         <Footer/>
         </>
     )
