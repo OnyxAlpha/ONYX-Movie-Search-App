@@ -3,8 +3,6 @@ import "./App.css";
 import Homepage from "./pages/homepage/index";
 import MovieDetails from "./pages/moviedetails";
 import AllMovies from "./pages/movies/allmovies";
-import PopularMovies from "./pages/movies/popularmovies";
-import TopRatedMovies from "./pages/movies/toprated";
 import SearchResults from "./pages/searchresults";
 import AllTvShows from "./pages/tvshows/alltvshows";
 import PopularTVShows from "./pages/tvshows/populartvshows";
@@ -17,8 +15,8 @@ const router = createBrowserRouter([
   {path:'/', element: <Homepage />},
   {path:'/moviedetails', element: <MovieDetails />},
   {path:'/allmovies', element: <AllMovies />},
-  {path:'/popularmovies', element: <PopularMovies />},
-  {path:'/topratedmovies', element: <TopRatedMovies />},
+  // {path:'/popularmovies', element: <PopularMovies />},
+  // {path:'/topratedmovies', element: <TopRatedMovies />},
   {path:'/alltvshows', element: <AllTvShows />},
   {path:'/populartvshows', element: <PopularTVShows />},
   {path:'/topratedtvshows', element: <TopRatedTVShows />},

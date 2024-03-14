@@ -83,9 +83,9 @@ export default function AllMovies (){
 
         <div className="grid grid-cols-1 md:grid-cols-4 gap-x-6 gap-y-4 md:gap-y-20 bg-black px-10 py-20">
             {allMovies.map((movie) =>(
-            <div className="flex md:block bg-white border-2 rounded-lg">
+            <div className="flex md:block bg-white border-2">
               <div className="w-2/5 md:w-full">
-                <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt="" className="w-4/5 md:w-full h-36 md:h-80 border-b-4 border-b-orange-600 rounded-t-lg "/>
+                <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt="" className="w-4/5 md:w-full h-36 md:h-80 border-b-4 border-b-orange-600 "/>
               </div>
               <div>
                 <h1 className="text-orange-500">{movie.title}</h1>
