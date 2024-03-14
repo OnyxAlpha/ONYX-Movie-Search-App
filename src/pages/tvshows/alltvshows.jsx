@@ -20,7 +20,7 @@ export default function AllTVShows() {
   async function fetchAllShows() {
     const response = await fetch(url2, {
       headers: {
-        Authorization: `Bearer ${process.env.REACT_APP_MOVIE_API_KEY}`,
+        Authorization: `Bearer ${process.env.REACT_APP_API_AUTHKEY}`,
       },
     });
     const data = await response.json();
@@ -32,7 +32,7 @@ export default function AllTVShows() {
   async function fetchPopularShows() {
     const response = await fetch(url1, {
       headers: {
-        Authorization: `Bearer ${process.env.REACT_APP_MOVIE_API_KEY}`,
+        Authorization: `Bearer ${process.env.REACT_APP_API_AUTHKEY}`,
       },
     });
     const data = await response.json();
@@ -48,7 +48,7 @@ export default function AllTVShows() {
   async function fetchTopRatedShows() {
     const response = await fetch(url3, {
       headers: {
-        Authorization: `Bearer ${process.env.REACT_APP_MOVIE_API_KEY}`,
+        Authorization: `Bearer ${process.env.REACT_APP_API_AUTHKEY}`,
       },
     });
     const data = await response.json();

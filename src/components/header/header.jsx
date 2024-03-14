@@ -20,10 +20,10 @@ export default function Header() {
 
   return (
     <header>
-      <nav className=" md:grid-cols-4 bg-white border-b-2 border-gray-200 px-3 lg:px-8 py-2 dark:bg-gray-900 dark:border-b-1 dark:border-gray-700 ">
+      <nav className=" bg-gray-950 md:grid-cols-4 border-b-2 border-gray-200 px-3 lg:px-8 py-2 dark:bg-gray-900 dark:border-b-1 dark:border-gray-700 py-3">
         <div className="flex flex-wrap justify-between items-center mx-auto px-0 ">
           <Link to="/" className="flex items-center gap-6">
-            <span className=" text-xl nav-title self-center pt-1 lg:text-3xl lg:block font-semibold whitespace-nowrap dark:text-white  ">
+            <span className=" text-white text-xl nav-title self-center pt-1 lg:text-3xl lg:block font-semibold whitespace-nowrap dark:text-white  ">
               OnyxCinema
             </span>
           </Link>
@@ -112,7 +112,7 @@ export default function Header() {
             id="nav-links"
             className={`${
               hiddenSearch ? "hidden" : ""
-            } items-center justify-between w-full md:flex md:w-auto md:order-1"} id="navbar-search`}
+            }  items-center justify-between w-full md:flex md:w-auto md:order-1"} id="navbar-search`}
           >
             <div className="relative mt-3 md:hidden">
               <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">

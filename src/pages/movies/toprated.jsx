@@ -27,7 +27,15 @@ export default function TopRatedMovies() {
 const [topRatedMovieList, settopRatedMovieList] = useState([])
 
 const getTopratedMovies = () => {
-    fetch("https://api.themoviedb.org/3/movie/top_rated?api_key=fe5ee1822af695fe2d54361ceff801bb")
+
+    const url = new URL(
+        "https://api.themoviedb.org/3/movie/top_rated"
+      );
+      fetch(url, {
+        headers: {
+          Authorization: `Bearer ${process.env.REACT_APP_API_AUTHKEY}`,
+        },
+      })
     .then(res => res.json())
     .then(json => settopRatedMovieList(json.results))
 }
