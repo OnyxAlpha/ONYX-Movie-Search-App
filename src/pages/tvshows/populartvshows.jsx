@@ -3,7 +3,7 @@ import Header from "../../components/header/header.jsx";
 import Footer from "../../components/footer/footer.jsx";
 
 export default function PopularTVShows() {
-  const url = `https://api.themoviedb.org/3/tv/popular?language=en-US&page=1`;
+  const url = `https://api.themoviedb.org/3/tv/popular?language=en-US&page=2`;
 
   const [popularShows, setPopularShows] = useState([]);
 
@@ -27,13 +27,14 @@ export default function PopularTVShows() {
   return (
     <>
       <Header />
+      <div className="h-[300px] left-o right-0 top-0 relative ">
       <h1 class="flex justify-center pt-10 pb-10 font-bold text-3xl">
-        Popular Shows
+        Trending
       </h1>
       <div class="grid grid-cols-1 md:grid-cols-4 gap-x-10 gap-y-10 p-10">
         {popularShows.map((show) => (
           <div
-            className="bg-slate-300 border-2 border-amber-300 transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-90 hover: duration-300  pb-5"
+            className="overlay-film-cover"
             key={show.id}
           >
             <img src={`${baseImageUrl}${show.poster_path}`} alt="" />
@@ -52,6 +53,7 @@ export default function PopularTVShows() {
       </div>
       <br />
       <br />
+      </div>
       <Footer />
     </>
   );

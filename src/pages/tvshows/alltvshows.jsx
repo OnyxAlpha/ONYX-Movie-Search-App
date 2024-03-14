@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 export default function AllTVShows() {
   const url2 = `https://api.themoviedb.org/3/tv/popular?language=en-US&page=2`;
-  const url1 = `https://api.themoviedb.org/3/tv/popular?language=en-US&page=1`;
+  const url1 = `https://api.themoviedb.org/3/tv/popular?language=en-US&page=3`;
   const url3 = `https://api.themoviedb.org/3/tv/top_rated?language=en-US&page=3`;
 
   const [allShows, setAllShows] = useState([]);
@@ -20,7 +20,7 @@ export default function AllTVShows() {
   async function fetchAllShows() {
     const response = await fetch(url2, {
       headers: {
-        Authorization: `Bearer ${process.env.REACT_APP_API_AUTHKEY}`,
+        Authorization: `Bearer ${process.env.REACT_APP_MOVIE_API_KEY}`,
       },
     });
     const data = await response.json();
@@ -32,12 +32,12 @@ export default function AllTVShows() {
   async function fetchPopularShows() {
     const response = await fetch(url1, {
       headers: {
-        Authorization: `Bearer ${process.env.REACT_APP_API_AUTHKEY}`,
+        Authorization: `Bearer ${process.env.REACT_APP_MOVIE_API_KEY}`,
       },
     });
     const data = await response.json();
     console.log();
-    setAllShows([]);
+   // setAllShows([]);
     setAllShows(data.results);
     setPopularTag(true);
     setTopRatedTag(false);
@@ -48,11 +48,11 @@ export default function AllTVShows() {
   async function fetchTopRatedShows() {
     const response = await fetch(url3, {
       headers: {
-        Authorization: `Bearer ${process.env.REACT_APP_API_AUTHKEY}`,
+        Authorization: `Bearer ${process.env.REACT_APP_MOVIE_API_KEY}`,
       },
     });
     const data = await response.json();
-    setAllShows([]);
+    //setAllShows([]);
     setAllShows(data.results);
     setPopularTag(false);
     setTopRatedTag(true);
@@ -76,19 +76,20 @@ export default function AllTVShows() {
       <h1 class="flex justify-center pt-10 pb-10 font-bold text-3xl">
         TV Shows
       </h1>
-      <button onClick={()=> fetchPopularShows()}>
-        <Link >Popular Shows</Link>
+      <button onClick={()=> fetchPopularShows()} >
+        <Link >Popular </Link>
       </button>
+      <br/>
       <button onClick={()=> fetchTopRatedShows()} >
-        <Link >Top Rated Shows</Link>
+        <Link >Top Rated </Link>
       </button>
       {popularTag ? <h1 class="flex justify-center pt-3 pb-3 font-bold text-2xl">
-        Popular Movies
+        Popular 
       </h1>: !allShows}
       {topRatedTag? <h1 class="flex justify-center pt-3 pb-3 font-bold text-2xl">
-        Top Rated Movies
+        Top Rated 
       </h1>: !allShows }
-      <div class="grid grid-cols-6 md:grid-cols-4 gap-x-10 gap-y-10 p-10">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-x-10 gap-y-10 p-10">
         {allShows.map((show) => (
           <div
             className="bg-slate-300 border-2 border-amber-300 transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-90 hover: duration-300  pb-5"

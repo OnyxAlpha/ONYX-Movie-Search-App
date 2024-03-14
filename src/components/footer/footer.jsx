@@ -15,13 +15,10 @@ export default function Footer () {
                 <div>
                     <ul className="flex align-middle justify-evenly items-center text-gray-500 mb-0 md:mb-3 dark:text-gray-400">
                         <li>
-                            <a href="https://necm.netlify.app" target="_blank" rel="noreferrer" className="text-xl md:text-2xl font-medium hover:underline md:mr-6 hover:underline-offset-8">About</a>
+                            <a href="/allmovieshows" target="_blank" rel="noreferrer" className="text-xl md:text-2xl font-medium hover:underline md:mr-6 hover:underline-offset-8">Movies</a>
                         </li>
                         <li>
-                            <a href="https://www.linkedin.com/in/noraelisacamacho/" className="text-xl md:text-2xl font-medium hover:underline md:mr-6 hover:underline-offset-8" target="_blank" rel="noreferrer" >Linkedin</a>
-                        </li>
-                        <li>
-                            <a href="https://github.com/noracamacho" className="text-xl md:text-2xl font-medium hover:underline md:mr-6 hover:underline-offset-8" target="_blank" rel="noreferrer" >GitHub</a>
+                            <a href="/alltvshows" className="text-xl md:text-2xl font-medium hover:underline md:mr-6 hover:underline-offset-8" target="_blank" rel="noreferrer" >TV</a>
                         </li>
                         <li>
                             <button onClick={() => window.location = 'mailto:yourmail@domain.com'} className="hover:underline hover:underline-offset-8 hover:cursor-pointer">Contact Us</button>

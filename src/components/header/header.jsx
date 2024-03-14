@@ -1,40 +1,29 @@
 import React, { useEffect, useState } from "react";
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Header() {
   const navigate = useNavigate();
   const [hiddenSearch, setHiddenSearch] = useState(true);
-  const [darkMode, setDarkMode] = useState(
-    JSON.parse(localStorage.getItem("darkMode")) || false
-  );
-
-  useEffect(() => {
-    localStorage.setItem("darkMode", JSON.stringify(darkMode));
-    if (darkMode) {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
-  }, [darkMode]);
+  
+  
 
   // Search input
   const handleSubmit = (event) => {
     event.preventDefault();
     const queryParam = event.target.search.value;
     event.target.reset();
+    console.log({queryParam});
     setHiddenSearch(true);
-    return navigate(`/search?q=${queryParam}`);
+    return navigate(`/searchresults/${queryParam}`);
   };
 
-  // const activeClass = "text-base block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white";
-  // const inactiveClass = "text-base block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700";
 
   return (
     <header>
       <nav className=" md:grid-cols-4 bg-white border-b-2 border-gray-200 px-3 lg:px-8 py-2 dark:bg-gray-900 dark:border-b-1 dark:border-gray-700 ">
         <div className="flex flex-wrap justify-between items-center mx-auto px-0 ">
-          <Link to="/" className="flex items-center">
-            <span className=" text-xl nav-title self-center pt-1 lg:text-3xl lg:block font-semibold whitespace-nowrap dark:text-white transition transform hover:-translate-y-1 motion-reduce:transition-none motion-reduce:hover:transform-none ">
+          <Link to="/" className="flex items-center gap-6">
+            <span className=" text-xl nav-title self-center pt-1 lg:text-3xl lg:block font-semibold whitespace-nowrap dark:text-white  ">
               OnyxCinema
             </span>
           </Link>
@@ -156,7 +145,7 @@ export default function Header() {
             <ul className="flex flex-col p-4 pt-5 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row lg:space-x-8 md:space-x-2 md:mt-0 text-xl md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700 font-semibold whitespace-nowrap dark:text-white ">
               <Link to="/allmovies">
                 {" "}
-                <span className="md:text-lg lg:text-xl">Movies</span>
+                <span className="md:text-lg lg:text-xl p-1.5 hover:bg-black-500 rounded-md">Movies</span>
               </Link>
               <Link to="/alltvshows">
                 {" "}

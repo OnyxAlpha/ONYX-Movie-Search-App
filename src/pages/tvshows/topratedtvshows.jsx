@@ -3,7 +3,7 @@ import Header from "../../components/header/header.jsx";
 import Footer from "../../components/footer/footer.jsx";
 
 export default function TopRatedTVShows() {
-  const url = `https://api.themoviedb.org/3/tv/top_rated?language=en-US&page=1`;
+  const url = `https://api.themoviedb.org/3/tv/top_rated?language=en-US&page=3`;
 
   const [topRated, setTopRated] = useState([]);
 
@@ -27,9 +27,9 @@ export default function TopRatedTVShows() {
     <>
       <Header />
       <h1 class="flex justify-center pt-10 pb-10 font-bold text-3xl">
-        Top Rated Shows
+        Top Rated 
       </h1>
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-x-10 gap-y-10 p-10 ">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-x-10 gap-y-10 p-10">
         {topRated.map((show) => (
           <div
             className="bg-slate-300 border-2 border-amber-300 transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-90 hover: duration-300  pb-5"

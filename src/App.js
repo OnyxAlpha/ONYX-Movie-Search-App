@@ -22,7 +22,7 @@ const router = createBrowserRouter([
   {path:'/alltvshows', element: <AllTvShows />},
   {path:'/populartvshows', element: <PopularTVShows />},
   {path:'/topratedtvshows', element: <TopRatedTVShows />},
-  {path:'/searchresults', element: <SearchResults />},
+  {path:'/searchresults/:name', element: <SearchResults />},
   {path:'/signin', element: <SignIn />},
   {path:'/signup', element: <SignUp />},
 ])
