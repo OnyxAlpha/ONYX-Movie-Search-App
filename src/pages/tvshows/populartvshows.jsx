@@ -10,7 +10,7 @@ export default function PopularTVShows() {
   async function fetchPopularShows() {
     const response = await fetch(url, {
       headers: {
-        Authorization: `Bearer ${process.env.REACT_APP_MOVIE_API_KEY}`,
+        Authorization: `Bearer ${process.env.REACT_APP_API_AUTHKEY}`,
       },
     });
     const data = await response.json();

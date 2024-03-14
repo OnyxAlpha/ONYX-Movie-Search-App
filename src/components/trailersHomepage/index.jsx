@@ -13,7 +13,7 @@ export default function TrailerH() {
     
     fetch(url,{
       headers: {
-      'Authorization': `Bearer ${process.env.REACT_APP_API_token}`
+      'Authorization': `Bearer ${process.env.REACT_APP_API_AUTHKEY}`
     }})
       .then(res => res.json())
       .then(movieList => setmoviesData(movieList.results))
