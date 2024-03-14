@@ -77,8 +77,8 @@ export default function MovieDetails() {
   useEffect(() => {
     getMovieAPI();
     getRelatedMovies();
-    popularpercentage(movie.popularity);
-    getCasts();
+    // popularpercentage(movie.popularity);
+    // getCasts();
   }, []);
 
   
@@ -98,10 +98,10 @@ export default function MovieDetails() {
             <div className="flex flex-col w-full gap-6 pt-10">
               <div className="flex gap-4">
                 <h1 className="text-2xl">{movie.original_title}</h1>
-                {/* <p>{movie.release_date.split("-")[0]}</p> */}
+                <p>{movie.release_date.split("-")[0]}</p>
                 <p>
                   <span className="rounded-lg p-1 bg-emerald-400">
-                    {/* {movie.spoken_languages[0].iso_639_1} */}
+                    {movie.spoken_languages[0].iso_639_1}
                   </span>
                 </p>
               </div>
