@@ -180,6 +180,7 @@ export default function MovieDetails() {
           <div className="flex gap-5">Trailor</div>
         </div>
 
+
         {/* getting casts */}
 
         <div className="px-40  pb-10">

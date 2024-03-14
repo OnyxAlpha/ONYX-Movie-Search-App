@@ -4,6 +4,7 @@ import Header from "../../components/header/header.jsx";
 import Footer from "../../components/footer/footer.jsx";
 
 
+
 const imageUrls = [
     "/gJL5kp5FMopB2sN4WZYnNT5uO0u.jpg",
     "/xvk5AhfhgQcTuaCQyq3XqAnhEma.jpg",
@@ -24,7 +25,6 @@ export default function PopularMovies() {
     
         return () => clearInterval(interval);
       }, []);
-
 
 
 
