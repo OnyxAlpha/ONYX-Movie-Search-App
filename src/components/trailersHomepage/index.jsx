@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 
 export default function TrailerH() {
-    const [moviesData, setmoviesData] = useState(null);
+    const [moviesData, setmoviesData] = useState([]);
     const [videoData, setVideoData] = useState([]);
-    const [setKeys, getKeys] = useState([]);
+    // const [setKeys, getKeys] = useState([]);
     
     
     const getAllMovies = () =>{
@@ -36,7 +36,7 @@ export default function TrailerH() {
         .then(movieList => setVideoData(movieList.results))
         .catch(err => console.error('error:' + err));
   
-        return setVideoData.key;
+        // return setVideoData.key;
       
       }
       
@@ -44,8 +44,8 @@ export default function TrailerH() {
       useEffect(() =>{
         getAllMovies();
         // getVideos();
-      },[])
-      console.log({moviesData});  
+      },[videoData])
+      // console.log({moviesData});  
 
       moviesData.map((item) =>{
         getVideos(item.id)

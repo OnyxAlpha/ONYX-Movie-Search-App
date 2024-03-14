@@ -1,6 +1,6 @@
 
 import { useEffect, useState } from "react";
-
+import { Link } from "react-router-dom";
 export default function TVtrendingH() {
     const [moviesData, setmoviesData]=useState([]);
     const getImages = () =>{
@@ -25,7 +25,7 @@ export default function TVtrendingH() {
     
     return(
       <div>
-      <h3>Watch Interesting TV shows <button className="bg-black text-white rounded-lg px-5 py-2 ml-10">More</button></h3>
+      <h3>Watch Interesting TV shows <button className="bg-black text-white rounded-lg px-5 py-2 ml-10"><Link to="/alltvshows">More</Link></button></h3>
         <br />
         <div  class="grid grid-cols-4 gap-4 flex overflow-x-scroll pb-10 hide-scroll-bar">
           <div className="flex flex-nowrap">
