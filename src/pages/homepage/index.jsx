@@ -3,7 +3,6 @@ import TVtrendingH from "../../components/TVShowHomepage";
 import Footer from "../../components/footer/footer";
 import Header from "../../components/header/header";
 import PopularH from "../../components/popularHomepage";
-import TrailerH from "../../components/trailersHomepage";
 import TrendingH from "../../components/trendingHomepage";
 import poster1 from '../../assets/poster1.png'
 import poster2 from '../../assets/poster2.png'
@@ -34,7 +33,7 @@ export default function Homepage() {
         <Header />
         <div className="">
         <div
-          className="absolute inset-0 bg-cover bg-center mt-20"
+          className="absolute inset-0 bg-cover bg-center mt-20 md:bg-contain md:h-full md:mt-0 md:bg-repeat-x "
           style={{
             height: '100%',
             backgroundImage: `url(${imageUrls[currentImageIndex]})`,
@@ -49,7 +48,7 @@ export default function Homepage() {
 
       <section>
         <div className="">
-          <div className="mt-5">
+          <div className="mt-5 md:mt-1">
             <TVtrendingH />
           </div>
           <div>
@@ -57,10 +56,6 @@ export default function Homepage() {
           </div>
           <div>
             <PopularH />
-          </div>
-          <div>
-            <h3>Trailers</h3>
-            {/* <TrailerH /> */}
           </div>
         </div>
       </section>
