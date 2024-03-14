@@ -4,6 +4,8 @@ export default function MovieDetails() {
   const [movie, getMovie] = useState({});
   const [relatedmovies, getRelated] = useState([]);
   const [percentageValue, getPpercentageValue] = useState(0);
+  const [castsValues, getCastsValues] = useState([]);
+  const [genre, getGenre] = useState([]);
 
   const movieId = 1096197;
 
@@ -12,8 +14,7 @@ export default function MovieDetails() {
     const url = new URL(
       `https://api.themoviedb.org/3/movie/${movieId}?language=en-US`
     );
-
-    fetch(url, {
+    fetch(url,{
       headers: {
         Authorization: `Bearer ${process.env.REACT_APP_API_AUTHKEY}`,
       },
@@ -22,6 +23,9 @@ export default function MovieDetails() {
       .then((data) => {
         console.log(data);
         getMovie(data);
+        getGenre(data.genres);
+        console.log('bdcnk',data.genres);
+
       })
       .catch((error) => console.log("Error", error));
   };
@@ -59,7 +63,6 @@ export default function MovieDetails() {
     const url = new URL(
       `https://api.themoviedb.org/3/movie/${movieId}/credits`
     );
-
     fetch(url, {
       headers: {
         Authorization: `Bearer ${process.env.REACT_APP_API_AUTHKEY}`,
@@ -68,25 +71,30 @@ export default function MovieDetails() {
       .then((response) => response.json())
       .then((data) => {
         console.log(data.cast);
-        getRelated(data.cast);
+        getCastsValues(data.cast);
       })
       .catch((error) => console.log("Error", error));
   };
 
+  
 
   useEffect(() => {
     getMovieAPI();
     getRelatedMovies();
-    // popularpercentage(movie.popularity);
-    // getCasts();
-  }, []);
+    popularpercentage(movie.popularity);
+    getCasts();
+  },[]);
 
-  
+
   if(!movie){
     return <div> Not Found....</div>
   }
 
   if(!relatedmovies){
+    return <div> Not Found....</div>
+  }
+
+  if(!castsValues){
     return <div> Not Found....</div>
   }
 
@@ -98,10 +106,11 @@ export default function MovieDetails() {
             <div className="flex flex-col w-full gap-6 pt-10">
               <div className="flex gap-4">
                 <h1 className="text-2xl">{movie.original_title}</h1>
-                <p>{movie.release_date.split("-")[0]}</p>
+                <p>{movie.release_date?.split("-")[0]}</p>
                 <p>
                   <span className="rounded-lg p-1 bg-emerald-400">
-                    {movie.spoken_languages[0].iso_639_1}
+                    {/* {movie.spoken_languages[0].iso_639_1} */}
+                    en
                   </span>
                 </p>
               </div>
@@ -120,7 +129,11 @@ export default function MovieDetails() {
                 <div>
                   <p>{movie.runtime} minutes</p>
                   <p>PG</p>
-                  <p>ANIMATION,ACTION,ADVENTURE</p>
+                 <div className="flex gap-2">
+                 [{genre.map((gen)=>{
+                    return <p>{gen.name},</p>
+                  })}]
+                 </div>
                 </div>
                 <div className="">
                   <i className="fa-brands fa-imdb text-xl text-yellow-300"> </i>{" "}
@@ -140,10 +153,7 @@ export default function MovieDetails() {
               </div>
               <div className="w-ful text-wrap">
                 <p>
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                  Distinctio id reprehenderit cupiditate rem dolorem, temporibus
-                  commodi dolore praesentium, aspernatur aut consectetur.
-                  Molestiae{" "}
+                  {movie.overview}
                 </p>
               </div>
               <div className="flex gap-5">
@@ -188,19 +198,18 @@ export default function MovieDetails() {
             <h1 className="text-2xl gap-5">Casts & Directors</h1>
           </div>
           <div className="flex gap-5">
-            {relatedmovies.slice(0, 5).map((data) => {
+            {castsValues.slice(0, 4).map((data) => {
               return (
-                <div className=" p-2 w-full border border-white flex gap-5">
+                <div className=" p-2 w-full border border-white-600 rounded-lg flex gap-3">
                   <img
                     className="rounded-full"
-                    style={{ width: "80px", height: "80px" }}
-                    src={`https://image.tmdb.org/t/p/w500${data.poster_path}`}
+                    style={{ width: "70px", height: "70px" }}
+                    src={`https://image.tmdb.org/t/p/w500${data.profile_path}`}
                     alt=""
                   />
                   <div>
-                    <p className="text-2xl">name</p>
-                    <p>name</p>
-                    <p>name</p>
+                    <p className="">{data.original_name}</p>
+                    <p className="text-sm">{data.known_for_department}</p>
                   </div>
                 </div>
               );
