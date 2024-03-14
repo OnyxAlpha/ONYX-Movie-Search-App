@@ -19,7 +19,7 @@ export default function PopularMovies() {
           setCurrentImageIndex((prevIndex) =>
             prevIndex === imageUrls.length - 1 ? 0 : prevIndex + 1
           );
-        }, 4000);
+        }, 3000);
     
         return () => clearInterval(interval);
       }, []);
@@ -68,10 +68,7 @@ export default function PopularMovies() {
               <div>
                 <h1 className="text-orange-500">{movie.title}</h1>
                 <h3>Release: {movie.release_date}</h3>
-                <div className="flex gap-10">
-                    <p>Trailer</p>
-                    <p>Detail</p>
-                </div>
+                <p>Detail</p>
               </div>
 
             </div>
