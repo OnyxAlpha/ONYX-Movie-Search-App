@@ -65,9 +65,7 @@ export default function AllMovies (){
   return (
     <>
         <Header/>
-        <h1 class="flex justify-center pt-10 pb-10 font-bold text-3xl">
-        Movies
-      </h1>
+        <h1 class="flex justify-center pt-10 pb-10 font-bold text-3xl">Movies</h1>
       <button onClick={()=> fetchPopularMovies()} >
         <Link >Popular </Link>
       </button>
