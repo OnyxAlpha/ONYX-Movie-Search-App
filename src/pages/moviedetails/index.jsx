@@ -103,7 +103,7 @@ export default function MovieDetails() {
 
   return (
     <>
-    <Header/>
+      <Header />
       <div className="text-white">
         <div className="px-40">
           <div className="flex pt-20 gap-40 relative">
@@ -113,7 +113,7 @@ export default function MovieDetails() {
                 <p>{movie.release_date?.split("-")[0]}</p>
                 <p>
                   <span className="rounded-lg p-1 bg-emerald-400">
-                    {/* {movie.spoken_languages[0].iso_639_1} */}
+                    
                     en
                   </span>
                 </p>
@@ -190,78 +190,86 @@ export default function MovieDetails() {
               backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.9)), url(${baseImageUrl}${movie.backdrop_path})`,
               backgroundSize: "cover",
               filter: "blur(5px)",
-              zIndex: '-1',
+              zIndex: "-1",
             }}
           ></div>
           <div
             className="absolute inset-0"
             style={{
-              backdropFilter: "blur(5px)", // Apply the blur effect directly to the image
-              backgroundColor: "rgba(255, 255, 255, 0)", // Optional: Add a semi-transparent white background to enhance the blur effect
-              zIndex: '-1',
+              backdropFilter: "blur(5px)", 
+              backgroundColor: "rgba(255, 255, 255, 0)", 
+              zIndex: "-1",
             }}
           ></div>
         </div>
 
         {/* getting Trailor */}
-<div className="bg-gray-200 text-black pt-10">
-  
-<div className="px-40 pb-10">
-          <div className="mb-6">
-            <h1 className="text-2xl gap-5">Trailer</h1>
+        <div className="bg-gray-800 text-white pt-10">
+          <div className="px-40 mb-32">
+            <div className="mb-6">
+              <h1 className="text-2xl gap-5">Trailer</h1>
+            </div>
+            <iframe
+              className="border rounded"
+              width="560"
+              height="315"
+              src={`https://www.youtube.com/embed/${movie.id}?si=8A1m-yj-KXTXR8tx`}
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+            ></iframe>
           </div>
-          <iframe width="560" height="315" src={`https://www.youtube.com/embed/${movie.id}?si=8A1m-yj-KXTXR8tx`} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-        </div>
 
-        {/* getting casts */}
+          {/* getting casts */}
 
-        <div className="px-40 pb-10">
-          <div className="mb-6">
-            <h1 className="text-2xl gap-5">Casts & Directors</h1>
-          </div>
-          <div className="flex gap-5">
-            {castsValues.slice(0, 4).map((data) => {
-              return (
-                <div className=" p-2 w-full border border-black rounded-lg flex gap-3">
-                  <img
-                    className="rounded-full"
-                    style={{ width: "70px", height: "70px" }}
-                    src={`https://image.tmdb.org/t/p/w500${data.profile_path}`}
-                    alt=""
-                  />
-                  <div>
-                    <p className="">{data.original_name}</p>
-                    <p className="text-sm">{data.known_for_department}</p>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-
-        {/* getting related movies */}
-
-        <div className="w-full px-40 flex flex-col justify-center">
-          <div className="flex">
-            <h1 className="text-2xl">Related Movies</h1>
-          </div>
-          <div className="overflow-x-scroll pb-10 hide-scroll-bar  mt-10 mb-10">
-            <div className="flex flex-nowrap">
-              {relatedmovies.map((data) => {
+          <div className="px-40 pb-10">
+            <div className="mb-6">
+              <h1 className="text-2xl gap-5">Casts & Directors</h1>
+            </div>
+            <div className="flex gap-5">
+              {castsValues.slice(0, 4).map((data) => {
                 return (
-                  <img
-                    className="h-64 rounded-lg pr-3"
-                    src={`https://image.tmdb.org/t/p/w500${data.poster_path}`}
-                    alt=""
-                  />
+                  <div className=" p-2 w-full border border-white rounded-lg flex gap-3">
+                    <img
+                      className="rounded-full"
+                      style={{ width: "70px", height: "70px" }}
+                      src={`https://image.tmdb.org/t/p/w500${data.profile_path}`}
+                      alt=""
+                    />
+                    <div>
+                      <p className="">{data.original_name}</p>
+                      <p className="text-sm">{data.known_for_department}</p>
+                    </div>
+                  </div>
                 );
               })}
             </div>
           </div>
+
+          {/* getting related movies */}
+
+          <div className="w-full px-40 flex flex-col justify-center">
+            <div className="flex">
+              <h1 className="text-2xl">Related Movies</h1>
+            </div>
+            <div className="overflow-x-scroll pb-10 hide-scroll-bar  mt-10 mb-10">
+              <div className="flex flex-nowrap">
+                {relatedmovies.map((data) => {
+                  return (
+                    <img
+                      className="h-64 rounded-lg pr-3"
+                      src={`https://image.tmdb.org/t/p/w500${data.poster_path}`}
+                      alt=""
+                    />
+                  );
+                })}
+              </div>
+            </div>
+          </div>
         </div>
-</div>
       </div>
-      <Footer/>
+      <Footer />
     </>
   );
 }

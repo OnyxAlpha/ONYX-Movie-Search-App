@@ -27,7 +27,7 @@ export default function TVtrendingH() {
     
     
     return(
-      <div className="drop-shadow-2xl">
+      <div className="drop-shadow-2xl pt-10">
       <h3 className="pl-5">Watch Interesting TV shows <button className="bg-black  text-white rounded-lg px-5 py-1 ml-3"><Link to="/alltvshows">More</Link></button></h3>
         <div className="w-full px-16 flex flex-col justify-center">
         <div  class=" overflow-x-scroll pb-10 hide-scroll-bar mt-10 mb-10">

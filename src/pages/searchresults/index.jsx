@@ -2,6 +2,7 @@ import Header from "../../components/header/header.jsx";
 import Footer from "../../components/footer/footer.jsx";
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+import firebg from "../../assets/firebg.jpg";
 
 
 export default function SearchResults() {
@@ -38,16 +39,17 @@ export default function SearchResults() {
     return(
         <>
         <Header/>
-        <div class="grid md:w-76 grid-cols-4 gap-4 px-32">
+       <section className="bg-cover bg-center h-100vh pt-10 " style={{ backgroundImage: `linear-gradient( rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${firebg})` }}>
+       <div class="grid md:w-76 grid-cols-4 gap-4 px-32">
         {searchResults.map((show) => (
           <div
-            className="bg-slate-300 border-2 border-amber-300 transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-90 hover: duration-300  pb-5"
+            className="flex md:block md:w-56 bg-white rounded md:rounded-lg bg-slate-300  transition ease-in-out delay-50  hover:-translate-y-1 hover:scale-95 hover: duration-300  pb-5"
             key={show.id}
             onClick={()=> navigate(`/moviedetails/${show.id}`)}
           >
             <img src={`${baseImageUrl}${show.poster_path}`} alt="" />
             <h1 className="text-black-500 flex justify-center pt-5 font-bold text-xl">
-              {show.name}
+              {show.title}
             </h1>
             <h3 className="text-black-500 flex justify-center pt-5 text-xl">
               {" "}
@@ -60,6 +62,7 @@ export default function SearchResults() {
           </div>
         ))}
       </div>
+       </section>
         <Footer/>
         </>
     )

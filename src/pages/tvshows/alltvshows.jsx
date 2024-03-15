@@ -11,12 +11,10 @@ export default function AllTVShows() {
 
   const [allShows, setAllShows] = useState([]);
 
-  /* these are just states to show the title category title */
+  
   const [popularTag, setPopularTag] = useState(false);
   const [topRatedTag, setTopRatedTag] = useState(false);
   const navigate = useNavigate();
-
-  /* please just replace your API authentication key name and everything should work fine*/
 
   async function fetchAllShows() {
     const response = await fetch(url2, {
@@ -29,7 +27,6 @@ export default function AllTVShows() {
     setAllShows(data.results);
   }
 
-  /* function for popular movies */
   async function fetchPopularShows() {
     const response = await fetch(url1, {
       headers: {
@@ -38,13 +35,12 @@ export default function AllTVShows() {
     });
     const data = await response.json();
     console.log();
-    // setAllShows([]);
+    
     setAllShows(data.results);
     setPopularTag(true);
     setTopRatedTag(false);
   }
 
-  /* function for tp rated movies */
   async function fetchTopRatedShows() {
     const response = await fetch(url3, {
       headers: {

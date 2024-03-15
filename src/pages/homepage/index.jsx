@@ -46,7 +46,7 @@ export default function Homepage() {
           className="absolute bg-gray-200 inset-0 bg-cover h-80 bg-center md:bg-contain md:h-full md:mt-0"
           style={{
             height: '393px',
-            marginTop: '7%',
+            marginTop: '5.5%',
             backgroundImage: `url(${imageUrls[currentImageIndex]})`,
           }}
         >
@@ -69,23 +69,3 @@ export default function Homepage() {
     </>
   );
 }
-
-
-// <div className="bg-[url('./assets/pic.jpg')] bg-cover bg-center h-lvh text-white max-h-screen">
-//           <div className="justify-center item-center">
-//             <h2 className="">Welcome!</h2>
-//             <p>
-//               Explore latest movies and millions of different genre of movies
-//             </p>
-
-//             <input
-//               className="inputSearch"
-//               type="text"
-//               placeholder="Search movies and TV shows"
-//             />
-
-//             {/* Search Icon */}
-
-//             <button>Search</button>
-//           </div>
-//         </div>

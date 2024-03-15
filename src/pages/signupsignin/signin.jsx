@@ -1,12 +1,15 @@
 import { Link } from "react-router-dom";
+import firebg from '../../assets/pic.jpg'
 
 export default function SignIn() {
   return (
-    <section class="bg-gray-50 dark:bg-gray-600">
+    <section class="bg-gray-50 dark:bg-gray-600"style={{
+      backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)), url(${firebg})`
+  }}>
       <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
         <a
           href="/"
-          class="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white"
+          class="flex items-center mb-6 text-2xl font-semibold text-gray-900 text-white"
         >
           OnyxCinema
         </a>
@@ -77,7 +80,7 @@ export default function SignIn() {
               </div>
               <button
                 type="submit"
-                class="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+                class="w-full text-black bg-primary-600 hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
               ><Link to= "/">  Sign in</Link>
                
               </button>
