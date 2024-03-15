@@ -1,4 +1,8 @@
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import Header from "../../components/header/header";
+import Footer from "../../components/footer/footer";
+import YouTube from "react-youtube";
 
 export default function MovieDetails() {
   const [movie, getMovie] = useState({});
@@ -6,15 +10,18 @@ export default function MovieDetails() {
   const [percentageValue, getPpercentageValue] = useState(0);
   const [castsValues, getCastsValues] = useState([]);
   const [genre, getGenre] = useState([]);
+  // const [movieId, getMovieId] = useState(null)
+  const params = useParams();
 
-  const movieId = 1096197;
+  const baseImageUrl = "https://image.tmdb.org/t/p/w500";
 
+  const movieId = params.id;
 
   const getMovieAPI = () => {
     const url = new URL(
       `https://api.themoviedb.org/3/movie/${movieId}?language=en-US`
     );
-    fetch(url,{
+    fetch(url, {
       headers: {
         Authorization: `Bearer ${process.env.REACT_APP_API_AUTHKEY}`,
       },
@@ -24,8 +31,7 @@ export default function MovieDetails() {
         console.log(data);
         getMovie(data);
         getGenre(data.genres);
-        console.log('bdcnk',data.genres);
-
+        console.log("bdcnk", data.genres);
       })
       .catch((error) => console.log("Error", error));
   };
@@ -47,7 +53,6 @@ export default function MovieDetails() {
       })
       .catch((error) => console.log("Error", error));
   };
-
 
   /* convert popular rating to get percentage */
 
@@ -76,33 +81,32 @@ export default function MovieDetails() {
       .catch((error) => console.log("Error", error));
   };
 
-  
-
   useEffect(() => {
+    // getMovieId()
     getMovieAPI();
     getRelatedMovies();
     popularpercentage(movie.popularity);
     getCasts();
-  },[]);
+  }, []);
 
-
-  if(!movie){
-    return <div> Not Found....</div>
+  if (!movie) {
+    return <div> Not Found....</div>;
   }
 
-  if(!relatedmovies){
-    return <div> Not Found....</div>
+  if (!relatedmovies) {
+    return <div> Not Found....</div>;
   }
 
-  if(!castsValues){
-    return <div> Not Found....</div>
+  if (!castsValues) {
+    return <div> Not Found....</div>;
   }
 
   return (
     <>
-      <div className="bg-neutral-900  text-white">
-        <div className="px-40 ">
-          <div className="flex pb-10 pt-20 gap-60">
+    <Header/>
+      <div className="text-white">
+        <div className="px-40">
+          <div className="flex pt-20 gap-40 relative">
             <div className="flex flex-col w-full gap-6 pt-10">
               <div className="flex gap-4">
                 <h1 className="text-2xl">{movie.original_title}</h1>
@@ -129,11 +133,13 @@ export default function MovieDetails() {
                 <div>
                   <p>{movie.runtime} minutes</p>
                   <p>PG</p>
-                 <div className="flex gap-2">
-                 [{genre.map((gen)=>{
-                    return <p>{gen.name},</p>
-                  })}]
-                 </div>
+                  <div className="flex gap-2">
+                    [
+                    {genre.map((gen) => {
+                      return <p>{gen.name},</p>;
+                    })}
+                    ]
+                  </div>
                 </div>
                 <div className="">
                   <i className="fa-brands fa-imdb text-xl text-yellow-300"> </i>{" "}
@@ -152,9 +158,7 @@ export default function MovieDetails() {
                 </div>
               </div>
               <div className="w-ful text-wrap">
-                <p>
-                  {movie.overview}
-                </p>
+                <p>{movie.overview}</p>
               </div>
               <div className="flex gap-5">
                 <div className="flex gap-2 justify-center justify-items-center text-center">
@@ -179,17 +183,36 @@ export default function MovieDetails() {
               />
             </div>
           </div>
+          <div
+            className="absolute inset-0"
+            style={{
+              height: "100%",
+              backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.9)), url(${baseImageUrl}${movie.backdrop_path})`,
+              backgroundSize: "cover",
+              filter: "blur(5px)",
+              zIndex: '-1',
+            }}
+          ></div>
+          <div
+            className="absolute inset-0"
+            style={{
+              backdropFilter: "blur(5px)", // Apply the blur effect directly to the image
+              backgroundColor: "rgba(255, 255, 255, 0)", // Optional: Add a semi-transparent white background to enhance the blur effect
+              zIndex: '-1',
+            }}
+          ></div>
         </div>
 
         {/* getting Trailor */}
-
-        <div className="px-40  pb-10">
+<div className="bg-gray-200 text-black pt-10">
+  
+<div className="px-40 pb-10">
           <div className="mb-6">
             <h1 className="text-2xl gap-5">Trailer</h1>
           </div>
-          <div className="flex gap-5">Trailer</div>
+          <YouTube videoId={movie.id} style={{ height: '290',
+      width: '440',}} />
         </div>
-
 
         {/* getting casts */}
 
@@ -200,7 +223,7 @@ export default function MovieDetails() {
           <div className="flex gap-5">
             {castsValues.slice(0, 4).map((data) => {
               return (
-                <div className=" p-2 w-full border border-white-600 rounded-lg flex gap-3">
+                <div className=" p-2 w-full border border-black rounded-lg flex gap-3">
                   <img
                     className="rounded-full"
                     style={{ width: "70px", height: "70px" }}
@@ -237,7 +260,9 @@ export default function MovieDetails() {
             </div>
           </div>
         </div>
+</div>
       </div>
+      <Footer/>
     </>
   );
 }
