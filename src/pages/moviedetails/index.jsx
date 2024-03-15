@@ -210,13 +210,12 @@ export default function MovieDetails() {
           <div className="mb-6">
             <h1 className="text-2xl gap-5">Trailer</h1>
           </div>
-          <YouTube videoId={movie.id} style={{ height: '290',
-      width: '440',}} />
+          <iframe width="560" height="315" src={`https://www.youtube.com/embed/${movie.id}?si=8A1m-yj-KXTXR8tx`} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
         </div>
 
         {/* getting casts */}
 
-        <div className="px-40  pb-10">
+        <div className="px-40 pb-10">
           <div className="mb-6">
             <h1 className="text-2xl gap-5">Casts & Directors</h1>
           </div>

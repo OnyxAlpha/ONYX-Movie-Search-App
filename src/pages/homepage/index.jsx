@@ -42,17 +42,17 @@ export default function Homepage() {
   return (
     <>
         <Header />
-        <div
-          className="absolute inset-0 bg-cover h-80 bg-center md:bg-contain md:h-full md:mt-0  "
+        <div 
+          className="absolute bg-gray-200 inset-0 bg-cover h-80 bg-center md:bg-contain md:h-full md:mt-0"
           style={{
-            height: '60%',
+            height: '393px',
             marginTop: '7%',
             backgroundImage: `url(${imageUrls[currentImageIndex]})`,
           }}
         >
         </div>
 
-      <section >
+      <section className="bg-gray-200 pt-5" >
         <div className="mt-96">
           <div>
             <TVtrendingH />

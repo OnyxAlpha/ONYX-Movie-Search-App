@@ -76,7 +76,7 @@ export default function TrailerH() {
 <iframe width="560" height="315" src={`https://www.youtube.com/embed/${movie.key}?si=FHHEnjhFYUIJTb4f`} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                         <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt=""/>
                         <br />
-                        <p>{movie.title}</p>
+                        
                       </div>
     
                     )
