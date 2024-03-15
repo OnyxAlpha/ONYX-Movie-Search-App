@@ -116,7 +116,7 @@ export default function MovieDetails() {
               </div>
               <div>
                 <button className="rounded-full p-2 bg-orange-400">
-                  Play Trailor
+                  Play Trailer
                 </button>
               </div>
               <div className="flex gap-4">
@@ -148,7 +148,7 @@ export default function MovieDetails() {
                 <div>
                   <i class="fa-solid fa-audio-description text-xl text-red-600"></i>{" "}
                   <p className=" text-xl"> 91%</p>
-                  <p>AUDIENCE Score</p>
+                  <p>User Ratings</p>
                 </div>
               </div>
               <div className="w-ful text-wrap">
@@ -171,7 +171,7 @@ export default function MovieDetails() {
                 </div>
               </div>
             </div>
-            <div className="h-64 w-72 border border-orange-400 rounded-lg">
+            <div className="h-64 w-72 rounded-lg">
               <img
                 className="h-full w-full rounded-lg"
                 src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
@@ -185,9 +185,9 @@ export default function MovieDetails() {
 
         <div className="px-40  pb-10">
           <div className="mb-6">
-            <h1 className="text-2xl gap-5">Trailor</h1>
+            <h1 className="text-2xl gap-5">Trailer</h1>
           </div>
-          <div className="flex gap-5">Trailor</div>
+          <div className="flex gap-5">Trailer</div>
         </div>
 
 
