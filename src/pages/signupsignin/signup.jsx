@@ -1,9 +1,14 @@
 import { Link } from "react-router-dom"
+import firebg from '../../assets/pic.jpg'
 
 export default function SignUp() {
     return (
         <>
-        <section class="bg-gray-50 dark:bg-gray-600">
+        <section 
+        style={{
+            backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)), url(${firebg})`
+        }}
+        class=" dark:bg-gray-600">
   <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
       <a href="/" class="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
           
@@ -35,7 +40,7 @@ export default function SignUp() {
                         <label for="terms" class="font-light text-gray-500 dark:text-gray-300">I accept the <a class="font-medium text-primary-600 hover:underline dark:text-primary-500" href="#">Terms and Conditions</a></label>
                       </div>
                   </div>
-                  <button type="submit" class="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"><Link to="/"> Create an account</Link></button>
+                  <button type="submit" class="w-full bg-gray-500 text-black bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"><Link to="/"> Create an account</Link></button>
                   <p class="text-sm font-light text-gray-500 dark:text-gray-400">
                       Already have an account? <a href="/signin" class="font-medium text-primary-600 hover:underline dark:text-primary-500">Login here</a>
                   </p>
