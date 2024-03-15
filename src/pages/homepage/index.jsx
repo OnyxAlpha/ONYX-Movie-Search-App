@@ -3,16 +3,26 @@ import TVtrendingH from "../../components/TVShowHomepage";
 import Footer from "../../components/footer/footer";
 import Header from "../../components/header/header";
 import PopularH from "../../components/popularHomepage";
-import TrailerH from "../../components/trailersHomepage";
 import TrendingH from "../../components/trendingHomepage";
-import poster1 from '../../assets/poster1.png'
-import poster2 from '../../assets/poster2.png'
-import poster3 from '../../assets/poster3.png'
+import herobg1 from "../../assets/hero-bg1.jpg";
+import herobg3 from "../../assets/hero-bg3.jpg";
+import herobg4 from "../../assets/hero-bg4.jpg";
+import herobg5 from "../../assets/hero-bg5 (1).jpg";
+import herobg7 from "../../assets/hero-bg7.jpg";
+import herobg8 from "../../assets/hero-bg8.jpg";
+import herobg9 from "../../assets/hero-bg9.jpg";
+import herobg11 from "../../assets/hero-bg11.jpg";
+import homepagebg from "../../assets/homepagebg.jpg";
 
 const imageUrls = [
-  poster1,
-  poster2,
-  poster3,
+  herobg1,
+  herobg3,
+  herobg4,
+  herobg5,
+  herobg7,
+  herobg8,
+  herobg9,
+  herobg11
 ];
 
 export default function Homepage() {
@@ -32,24 +42,19 @@ export default function Homepage() {
   return (
     <>
         <Header />
-        <div className="">
         <div
-          className="absolute inset-0 bg-cover bg-center mt-20"
+          className="absolute inset-0 bg-cover h-80 bg-center md:bg-contain md:h-full md:mt-0  "
           style={{
-            height: '100%',
+            height: '60%',
+            marginTop: '7%',
             backgroundImage: `url(${imageUrls[currentImageIndex]})`,
           }}
-        ></div>
-        <div className="relative z-10 text-white flex flex-col items-center justify-center h-screen">
-          <h1 className="text-xl md:text-3xl lg:text-5xl font-bold">
-            Welcome to Popular Movies
-          </h1>
+        >
         </div>
-      </div>
 
-      <section>
-        <div className="">
-          <div className="mt-5">
+      <section >
+        <div className="mt-96">
+          <div>
             <TVtrendingH />
           </div>
           <div>
@@ -57,10 +62,6 @@ export default function Homepage() {
           </div>
           <div>
             <PopularH />
-          </div>
-          <div>
-            <h3>Trailers</h3>
-            {/* <TrailerH /> */}
           </div>
         </div>
       </section>

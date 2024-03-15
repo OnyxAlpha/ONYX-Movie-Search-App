@@ -30,7 +30,7 @@ export default function TrailerH() {
       const url = new URL(`https://api.themoviedb.org/3/movie/${id}/videos?language=en-US`);
       fetch(url,{
         headers: {
-        'Authorization': `Bearer ${process.env.REACT_APP_API_token}`
+        'Authorization': `Bearer ${process.env.REACT_APP_API_AUTHKEY}`
       }})
         .then(res => res.json())
         .then(movieList => setVideoData(movieList.results))

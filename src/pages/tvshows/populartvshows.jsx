@@ -20,7 +20,7 @@ export default function PopularTVShows() {
 
   useEffect(() => {
     fetchPopularShows();
-  }, []);
+  },[]);
 
   const baseImageUrl = "https://image.tmdb.org/t/p/w500";
 
