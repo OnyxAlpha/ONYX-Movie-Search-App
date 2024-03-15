@@ -65,9 +65,7 @@ export default function AllMovies (){
   return (
     <>
         <Header/>
-        <h1 class="flex justify-center pt-10 pb-10 font-bold text-3xl">
-        Movies
-      </h1>
+        <h1 class="flex justify-center pt-10 pb-10 font-bold text-3xl">Movies</h1>
       <button onClick={()=> fetchPopularMovies()} >
         <Link >Popular </Link>
       </button>
@@ -83,16 +81,15 @@ export default function AllMovies (){
       </h1>: !allMovies }
         <div>
 
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-x-6 gap-y-4 md:gap-y-20 bg-black px-10 py-20">
+        <div className="md:pl-32 grid md:grid-cols-4 gap-y-4 md:gap-y-10 bg-black md:p-10">
             {allMovies.map((movie) =>(
-            <div className="flex md:block bg-white border-2 rounded-lg">
-              <div className="w-2/5 md:w-full">
-                <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt="" className="w-4/5 md:w-full h-36 md:h-80 border-b-4 border-b-orange-600 rounded-t-lg "/>
+            <div className="flex md:block md:w-56 bg-white border-2 rounded md:rounded-lg">
+              <div className="md:w-full">
+                <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt="" className="w-4/5 md:w-full h-36 md:h-80 border-b-4 rounded md:rounded-lg"/>
               </div>
-              <div>
-                <h1 className="text-orange-500">{movie.title}</h1>
+              <div className='text-center'>
+                <h1 className="text-black-500">{movie.title}</h1>
                 <h3>Release: {movie.release_date}</h3>
-                <p>Detail</p>
               </div>
 
             </div>

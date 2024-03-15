@@ -89,7 +89,7 @@ export default function AllTVShows() {
       {topRatedTag? <h1 class="flex justify-center pt-3 pb-3 font-bold text-2xl">
         Top Rated 
       </h1>: !allShows }
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-x-10 gap-y-10 p-10">
+      <div class="grid md:w-76 grid-cols-4 gap-4 px-32">
         {allShows.map((show) => (
           <div
             className="bg-slate-300 border-2 border-amber-300 transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-90 hover: duration-300  pb-5"
